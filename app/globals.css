@@ -1,0 +1,405 @@
+/* ============================================
+   ABER Admin — التنسيقات الأساسية
+   الألوان: كحلي + بيج (نفس USER + Business)
+   ============================================ */
+
+:root {
+  --aber-primary: #1e3a5f;
+  --aber-primary-dark: #152a47;
+  --aber-primary-light: #2d5080;
+  --aber-accent: #c9a961;
+  --aber-accent-light: #e5d3a5;
+  --aber-bg: #f5efe6;
+  --aber-bg-soft: #faf6ef;
+  --aber-card: #ffffff;
+  --aber-text: #1a2942;
+  --aber-text-soft: #4a5568;
+  --aber-muted: #7a6f5f;
+  --aber-border: #e5dcc9;
+  --aber-border-soft: #efe8d8;
+  --aber-radius: 16px;
+  --aber-radius-sm: 10px;
+
+  /* حالات Admin */
+  --status-pending: #d97706;
+  --status-approved: #059669;
+  --status-rejected: #dc2626;
+  --status-suspended: #7c3aed;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Tahoma', 'Arial', sans-serif;
+  background: var(--aber-bg);
+  color: var(--aber-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+.card {
+  background: var(--aber-card);
+  border: 1px solid var(--aber-border);
+  border-radius: var(--aber-radius);
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(30, 58, 95, 0.06);
+}
+
+.muted {
+  color: var(--aber-muted);
+  font-size: 14px;
+}
+
+h1, h2, h3 {
+  line-height: 1.3;
+  margin-bottom: 12px;
+  color: var(--aber-text);
+}
+
+h1 { font-size: 32px; font-weight: 800; }
+h2 { font-size: 22px; font-weight: 700; }
+
+/* ============================================
+   Header (Admin)
+   ============================================ */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  background: var(--aber-primary);
+  color: white;
+  border-bottom: 2px solid var(--aber-accent);
+}
+
+.admin-header .brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 800;
+  color: white;
+}
+
+.admin-header .brand .badge-admin {
+  font-size: 11px;
+  background: var(--aber-accent);
+  color: var(--aber-primary);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 800;
+}
+
+.admin-header .nav {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.admin-header .nav a {
+  color: white;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.admin-header .nav a:hover {
+  opacity: 1;
+}
+
+.admin-header .logout-btn {
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.admin-header .logout-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ============================================
+   Forms
+   ============================================ */
+.form {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--aber-text);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 15px;
+  border: 1px solid var(--aber-border);
+  border-radius: 10px;
+  background: white;
+  color: var(--aber-text);
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--aber-primary);
+  box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.12);
+}
+
+.form-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  background: var(--aber-primary);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.form-btn:hover:not(:disabled) {
+  background: var(--aber-primary-dark);
+}
+
+.form-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-error {
+  padding: 12px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #7f1d1d;
+  background: #fef2f2;
+  border: 1px solid #fca5a5;
+  border-radius: 10px;
+}
+
+.form-success {
+  padding: 12px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #065f46;
+  background: #ecfdf5;
+  border: 1px solid #6ee7b7;
+  border-radius: 10px;
+}
+
+.form-link {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--aber-muted);
+}
+
+.form-link a {
+  color: var(--aber-primary);
+  font-weight: 600;
+}
+
+/* ============================================
+   Badges
+   ============================================ */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.badge-pending { background: #fef3c7; color: #92400e; }
+.badge-approved { background: #d1fae5; color: #065f46; }
+.badge-rejected { background: #fee2e2; color: #991b1b; }
+.badge-suspended { background: #ede9fe; color: #5b21b6; }
+
+/* ============================================
+   Stats Grid
+   ============================================ */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: white;
+  padding: 22px;
+  border-radius: var(--aber-radius);
+  border: 1px solid var(--aber-border);
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(30, 58, 95, 0.08);
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--aber-primary);
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  color: var(--aber-muted);
+  font-size: 13px;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.btn {
+  display: inline-block;
+  background: var(--aber-primary);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-align: center;
+}
+
+.btn:hover {
+  background: var(--aber-primary-dark);
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--aber-primary);
+  border: 1px solid var(--aber-border);
+}
+
+.btn-secondary:hover {
+  background: var(--aber-bg-soft);
+}
+
+.btn-approve {
+  background: #059669;
+}
+
+.btn-approve:hover {
+  background: #047857;
+}
+
+.btn-reject {
+  background: #dc2626;
+}
+
+.btn-reject:hover {
+  background: #b91c1c;
+}
+
+.btn-request {
+  background: #d97706;
+}
+
+.btn-request:hover {
+  background: #b45309;
+}
+
+/* ============================================
+   Action Bar
+   ============================================ */
+.action-bar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.action-bar h1,
+.action-bar h2 {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   Tabs
+   ============================================ */
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--aber-border);
+}
+
+.tab {
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--aber-muted);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  cursor: pointer;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.tab.active {
+  color: var(--aber-primary);
+  border-bottom-color: var(--aber-primary);
+}
+
+.tab:hover:not(.active) {
+  color: var(--aber-text);
+}
